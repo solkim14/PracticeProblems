@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class FindDuplicates{
 	
 	/**
+	* O(n)
 	* @param array from which to find duplicates
 	*/
     public static void findDup(int[] array) {

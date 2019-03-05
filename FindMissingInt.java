@@ -6,6 +6,7 @@
 public class FindMissingInt {
 	
 	/**
+	* O(n)
 	* @param array of consecutive numbers to test
 	* @return the missing integer from the array
 	*/

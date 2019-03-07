@@ -1,6 +1,9 @@
 /**
 * How do you find the duplicate number on a given
 * integer array?
+*
+* @version 1.0
+* 
 */
 import java.util.HashMap;
 
@@ -8,6 +11,9 @@ public class FindDuplicates{
 	
 	/**
 	* O(n)
+	*
+	* loop through array and put elements in hashtable as keys, if that key is already in the table
+	* it is a duplicate
 	* @param array from which to find duplicates
 	*/
     public static void findDup(int[] array) {

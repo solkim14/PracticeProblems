@@ -1,12 +1,17 @@
 /**
 * How do you find the missing number in a given integer
 * array of 1 to 100?
+*
+* @version 1.0
 */
 
 public class FindMissingInt {
 	
 	/**
 	* O(n)
+	*
+	* Subtract sum of your array integers from the sum of 1-100 and you will have the value of you r missing integer
+	*
 	* @param array of consecutive numbers to test
 	* @return the missing integer from the array
 	*/

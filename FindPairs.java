@@ -3,15 +3,6 @@
 * is equal to a given number?
 *
 * @version 2.0
-* Summary:  Put all elements of array in a Map, loop through all map keys, subract key from given sum to find what int you would
-*			need to make the necessary sum, check if the Map contains that integer, if yes: save the pair; if no: keep checking
-* Efficiency: O(n)
-*
-* version 1.0
-* Summary:  Sort array, use 2 pointers at start and end to iterate through array and add, any pair equal to the given sum should be
-*			saved (in HashMap)
-*
-* Efficiency: O(nlogn)
 */
 
 //import java.util.Arrays;

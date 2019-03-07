@@ -1,12 +1,18 @@
 /**
 * How do you find the largest and smallest number in an
 * unsorted integer array?
+*
+* @version 1.0
 */
 
 public class FirstLargestFindSmallest {
 
 	/**
 	* O(n)
+	*
+	* loop through array, have integers that hold the smallest and largest elements, test each element to see if it is
+	* smaller or larger than the current smallest and largest elements and update accordingly
+	*
 	* @param array from which you are looking for the smallest and largest element
 	*/
 	public static void firstLargestFindSmallest(int[] array) {

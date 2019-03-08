@@ -22,42 +22,43 @@ public class FindPairs {
 	* @param n the sum 2 of the array integers need to add up to
 	* @param array the integers to find pairs
 	*/
-	private static void findPairs(int sum, int[] array) {
+	private static Map<Integer,Integer> findPairs(int sum, int[] array) {
 		Map<Integer,Integer> pairs = new HashMap<Integer,Integer>();
 		
 		if (array.length<2) { //if less than 2 elements there is no pair
 			System.out.println("Array is too small! No pairs :C");
-			return;
+			return pairs;
 		}
-		
-		for (int element : array) pairs.put(element,null); //put all array elements into hashtable
-		
-		
-		List<Integer> keys = new ArrayList<Integer>(pairs.keySet());
 		
 		for (int key : array) { //identify the pairs
 			int keyNeeded = sum-key;
 			if(pairs.containsKey(keyNeeded)) pairs.put(key,keyNeeded);
+			else pairs.put(key,null);
 		}
-
-		System.out.print("pairs that equal sum: ");
-		for (int firstPair : keys) {
-			if(pairs.get(firstPair) != null) System.out.print("(" + firstPair + "," + pairs.get(firstPair) + ")");
-		}
-		System.out.println();
+		return pairs;
 	}
 
 	
 	public static void main(String[] args) {
-		int sum = 7;
-		int[] array = {5,2,4,6,4,9,0,1,3,4,7,8,8,8,8,5,5};
+		//int sum = 8;
+		int sum = -10;
+		//int[] array = {5,2,6,9,0,1,3,4,7,8,8,8,8,5,5};
 		//int[] array = {5,2};
 		//int[] array = {-1};
 		//int[] array = {5,3};
 		//int[] array = {5,3,3};
 		//int[] array = {};
-		//int[] array = {-10,-11,-4,1,-2,9};
-		findPairs(sum, array);
+		//int[] array = {-10,-11,-4,-1,-2,-9};
+		Map<Integer,Integer> pairs = findPairs(sum, array);
+		
+		//print out the pairs
+		if (pairs.keySet().size() > 0) {
+			System.out.print("pairs that equal sum: ");
+			for (int firstPair : pairs.keySet()) {
+				if(pairs.get(firstPair) != null) System.out.print("(" + firstPair + "," + pairs.get(firstPair) + ")");
+			}
+			System.out.println();
+		}
 	}
 }
 

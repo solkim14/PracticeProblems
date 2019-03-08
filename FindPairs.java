@@ -13,7 +13,12 @@ import java.util.ArrayList;
 public class FindPairs {
 
 	/**
-	* function definition here
+	* O(n)
+	*
+	* Summary:  Add all integers and their counts to a hash table. Create a list of the keys. Loop through the keys
+	*			and remove any that only occur once. You will be left with only duplicate integers and return
+	* @param array the array to parse for duplicate integers
+	* @return duplicates a list of the integers with duplicate values in array
 	*/
 	public static List<Integer> findPairs(int[] array) {
 		Map<Integer,Integer> duplicateCount = new HashMap<Integer,Integer>();
@@ -22,10 +27,8 @@ public class FindPairs {
 		for (int element : array) {
 			if (duplicateCount.containsKey(element)) {
 				duplicateCount.put(element,duplicateCount.get(element)+1);
-				//System.out.println(element + " appears " + duplicateCount.get(element) + " times");
 			} else {
 				duplicateCount.put(element,0);
-				//System.out.println("just added " + element);
 			}
 		}
 		
@@ -33,10 +36,7 @@ public class FindPairs {
 		
 		//remove all elements that are unique so you are left only with duplicate integers
 		for (int i=0; i<duplicates.size(); i++) {
-			//System.out.print(i);
-			//System.out.println(duplicates.get(i));
 			if (duplicateCount.get(duplicates.get(i))==0) {
-				//System.out.println(duplicateCount.get(duplicates.get(i)));
 				duplicates.remove(i);
 				i--; //accomodate from removing elements
 			}

@@ -16,9 +16,8 @@ public class FindPairs {
 	/**
 	* VERSION 2 - O(n)
 	* <p>
-	* Put all elements of array in a Map, loop through all map keys, subract key from given sum to find what int you would
-	* need to make the necessary sum, check if the Map contains that integer, if yes: save the pair; if no: keep checking
-	*
+	* loop through array elements, if the element isn't a key in the hashtable add it;
+	* add a key-value pair if key+value=sum and value=an existing key in the hashtable
 	* @param n the sum 2 of the array integers need to add up to
 	* @param array the integers to find pairs
 	*/
@@ -28,19 +27,19 @@ public class FindPairs {
 		if (array.length<2) { //if less than 2 elements there is no pair
 			System.out.println("Array is too small! No pairs :C");
 			return pairs;
-		}
-		
-		for (int key : array) { //identify the pairs
-			int keyNeeded = sum-key;
-			if(pairs.containsKey(keyNeeded)) pairs.put(key,keyNeeded);
-			else pairs.put(key,null);
+		} else {
+			for (int key : array) { //identify the pairs
+				int keyNeeded = sum-key;
+				if(pairs.containsKey(keyNeeded)) pairs.put(key,keyNeeded);
+				else pairs.put(key,null);
+			}
 		}
 		return pairs;
 	}
 
 	
 	public static void main(String[] args) {
-		int sum = 8;
+		int sum = 7;
 		//int sum = -10;
 		int[] array = {5,2,6,9,0,1,3,4,7,8,8,8,8,5,5};
 		//int[] array = {5,2};
@@ -52,13 +51,11 @@ public class FindPairs {
 		Map<Integer,Integer> pairs = findPairs(sum, array);
 		
 		//print out the pairs
-		if (pairs.keySet().size() > 0) {
-			System.out.print("pairs that equal sum: ");
-			for (int firstPair : pairs.keySet()) {
-				if(pairs.get(firstPair) != null) System.out.print("(" + firstPair + "," + pairs.get(firstPair) + ")");
-			}
-			System.out.println();
+		System.out.print("pairs that equal sum: ");
+		for (int firstPair : pairs.keySet()) {
+			if(pairs.get(firstPair) != null) System.out.print("(" + firstPair + "," + pairs.get(firstPair) + ")");
 		}
+		System.out.println();
 	}
 }
 

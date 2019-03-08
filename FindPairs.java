@@ -8,8 +8,8 @@
 //import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
+//import java.util.List;
+//import java.util.ArrayList;
 
 public class FindPairs {
 	
@@ -40,9 +40,9 @@ public class FindPairs {
 
 	
 	public static void main(String[] args) {
-		//int sum = 8;
-		int sum = -10;
-		//int[] array = {5,2,6,9,0,1,3,4,7,8,8,8,8,5,5};
+		int sum = 8;
+		//int sum = -10;
+		int[] array = {5,2,6,9,0,1,3,4,7,8,8,8,8,5,5};
 		//int[] array = {5,2};
 		//int[] array = {-1};
 		//int[] array = {5,3};

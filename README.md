@@ -1,17 +1,17 @@
 # PracticeProblems
 A Collection of Practice Problem Implementations
 
-Array Q’s
-1. How do you find the missing number in a given integer array of 1 to 100?
-2. How do you find the duplicate number on a given integer array?
-3. How do you find the largest and smallest number in an unsorted integer array?
-4. How do you find all pairs of an integer array whose sum is equal to a given number?
-5. How do you find duplicate numbers in an array if it contains multiple duplicates?
-6. How are duplicates removed from a given array in Java?
-7. How is an integer array sorted in place using the quicksort algorithm?
-8. How do you remove duplicates from an array in place?
-9. How do you reverse an array in place in Java?
-10.	How are duplicates removed from an array without using any library?
+Array Q’s  
+1. How do you find the missing number in a given integer array of 1 to 100?  
+2. How do you find the duplicate number on a given integer array?  
+3. How do you find the largest and smallest number in an unsorted integer array?  
+4. How do you find all pairs of an integer array whose sum is equal to a given number?  
+5. How do you find duplicate numbers in an array if it contains multiple duplicates?  
+6. How are duplicates removed from a given array in Java?  
+7. How is an integer array sorted in place using the quicksort algorithm?  
+8. How do you remove duplicates from an array in place?  
+9. How do you reverse an array in place in Java?  
+10. How are duplicates removed from an array without using any library?  
   
 Linked List Q’s  
 11.	How do you find the middle element of a singly linked list in one pass?  
@@ -23,7 +23,7 @@ Linked List Q’s
 17.	How do you find the third node from the end in a singly linked list?  
 18.	How do you find the sum of two linked lists using Stack?  
   
-String Q’s
+String Q’s  
 19.	How do you print duplicate characters from a string?  
 20.	How do you check if two strings are anagrams of each other?  
 21.	How do you print the first non-repeated character from a string?  

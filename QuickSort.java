@@ -7,13 +7,14 @@
 
 //imports
 
-public class QuickSortInPlace {
+public class QuickSort {
 
 	/**
-	* //Time Complexity
+	* O(logn)
 	*
-	* Summary:  
-	*			
+	* Summary:  Divide and conquor; partition array using a "pivot" (last element of array) that divides the array - the left side
+	*			smaller than the pivot and the right side larger. Recursively partition the array until sorted
+	*		   			
 	* @param 
 	* @return 
 	*/
@@ -23,42 +24,40 @@ public class QuickSortInPlace {
 	
 	public static int partition() {//int left, int right) {
 		//int[] array={7,2,1,8,6,3,5,4};
-		//int[] array={6,9,12,6,9,2,17,6,1,6};
+		int[] array={6,9,12,6,9,2,17,6,1,6};
 		//int[] array={6,1,6,2,6,1,6};
 		
-		//int partition=array[right];
+		//int pivot=array[right];
 		//int l=left;
 		//int r=right-2;
-		int partition=array[array.length-1];
+		int pivot=array[array.length-1];
 		int l=0;
 		int r=array.length-2;
 		
 		//printPositions(array, l, r);
 		
 		while(l<=r) {
-			if (array[l]>partition && array[r]<=partition) { //swap
+			if (array[l]>pivot && array[r]<=pivot) { //swap
 				int temp = array[l];
 				array[l] = array[r];
 				array[r] = temp;
 			}
-			if (array[l]<=partition) {
+			if (array[l]<=pivot) {
 				l++;
 			}
-			if (array[r]>partition) {
+			if (array[r]>pivot) {
 				r--;
 			}
 			//printPositions(array, l, r);
 		}
-		//swap partition and l
+		//swap pivot and l
 		array[array.length-1]=array[l];
-		array[l] = partition;
+		array[l] = pivot;
 		
-		System.out.println("partition : " + partition);
+		System.out.println("pivot : " + pivot);
 		
 		//printPositions(array, l, r);
-
-		
-		return partition;
+		return pivot;
 	}
 	
 	public static void printPositions(int[] array, int l, int r) {

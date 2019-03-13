@@ -12,27 +12,28 @@ public class QuickSort {
 	/**
 	* O(logn)
 	*
-	* Summary:  Divide and conquor; partition array using a "pivot" (last element of array) that divides the array - the left side
+	* Summary:  Divide and conquer; partition array using a "pivot" (last element of array) that divides the array - the left side
 	*			smaller than the pivot and the right side larger. Recursively partition the array until sorted
 	*		   			
 	* @param 
 	* @return 
 	*/
-	public static void quickSort() {
-		//solution logic
+	public static void quickSort(int[] array, int start, int end) {
+		if(end-start<2) {
+			return;
+		} else {
+			int partition = partition(array,start,end);
+			System.out.println(partition);
+			//int partition = partition()
+			quickSort(array,start,partition-1); //smaller than partition
+			quickSort(array,partition+1,end); //larger than partition
+		}
 	}
 	
-	public static int partition() {//int left, int right) {
-		//int[] array={7,2,1,8,6,3,5,4};
-		int[] array={6,9,12,6,9,2,17,6,1,6};
-		//int[] array={6,1,6,2,6,1,6};
-		
-		//int pivot=array[right];
-		//int l=left;
-		//int r=right-2;
-		int pivot=array[array.length-1];
-		int l=0;
-		int r=array.length-2;
+	public static int partition(int[] array, int start, int end) {		
+		int pivot=array[end];
+		int l=start;
+		int r=end-1;
 		
 		//printPositions(array, l, r);
 		
@@ -54,7 +55,7 @@ public class QuickSort {
 		array[array.length-1]=array[l];
 		array[l] = pivot;
 		
-		System.out.println("pivot : " + pivot);
+		//System.out.println("pivot : " + pivot);
 		
 		//printPositions(array, l, r);
 		return pivot;
@@ -78,6 +79,14 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		partition();
+		int[] array={7,2,1,8,6,3,5,4};
+		//int[] array={6,9,12,6,9,2,17,6,1,6};
+		//int[] array={6,1,6,2,6,1,6};
+		
+		int start = 0;
+		int end = array.length-1;
+		quickSort(array,start,end);
+		
+		for (int i : array) System.out.print(i+" ");
 	}
 }

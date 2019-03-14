@@ -4,7 +4,7 @@
 * @version 1.0
 */
 
-public class ReverseArrayInPlace {
+public class ArrayReverseInPlace {
 
 	/**
 	* O(n)

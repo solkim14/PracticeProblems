@@ -5,7 +5,7 @@
 * @version 1.0
 */
 
-public class FirstLargestFindSmallest {
+public class ArrayFindLargestFindSmallest {
 
 	/**
 	* O(n)

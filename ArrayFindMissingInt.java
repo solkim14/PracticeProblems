@@ -5,7 +5,7 @@
 * @version 1.0
 */
 
-public class FindMissingInt {
+public class ArrayFindMissingInt {
 	
 	/**
 	* O(n)

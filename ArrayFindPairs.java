@@ -11,7 +11,7 @@ import java.util.HashMap;
 //import java.util.List;
 //import java.util.ArrayList;
 
-public class FindPairs {
+public class ArrayFindPairs {
 	
 	/**
 	* VERSION 2 - O(n)
@@ -21,7 +21,7 @@ public class FindPairs {
 	* @param n the sum 2 of the array integers need to add up to
 	* @param array the integers to find pairs
 	*/
-	private static Map<Integer,Integer> findPairs(int sum, int[] array) {
+	private static Map<Integer,Integer> findPair(int sum, int[] array) {
 		Map<Integer,Integer> pairs = new HashMap<Integer,Integer>();
 		
 		if (array.length<2) { //if less than 2 elements there is no pair
@@ -48,7 +48,7 @@ public class FindPairs {
 		//int[] array = {5,3,3};
 		//int[] array = {};
 		//int[] array = {-10,-11,-4,-1,-2,-9};
-		Map<Integer,Integer> pairs = findPairs(sum, array);
+		Map<Integer,Integer> pairs = findPair(sum, array);
 		
 		//print out the pairs
 		System.out.print("pairs that equal sum: ");

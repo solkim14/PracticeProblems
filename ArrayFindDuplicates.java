@@ -7,7 +7,7 @@
 */
 import java.util.HashMap;
 
-public class FindDuplicates{
+public class ArrayFindDuplicates {
 	
 	/**
 	* O(n)

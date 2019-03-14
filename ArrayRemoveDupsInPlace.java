@@ -6,7 +6,7 @@
 
 import java.util.Arrays;
 
-public class RemoveDupsInPlace {
+public class ArrayRemoveDupsInPlace {
 
 	/**
 	* O(nlogn)

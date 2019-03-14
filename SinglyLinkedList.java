@@ -36,8 +36,12 @@ public class SinglyLinkedList {
 	* @param 
 	* @return 
 	*/
-	public void insertLast() {
-		//solution logic
+	public void insertLast(Node node) {
+		Node current=head;
+		while(current.getNext() != null) {
+			current=current.getNext();	
+		}
+		current.setNext(node);
 	}
 	
 	/**
@@ -155,5 +159,8 @@ public class SinglyLinkedList {
 		SinglyLinkedList list = new SinglyLinkedList();
 		SinglyLinkedList listWData = new SinglyLinkedList(new Node(5));
 		System.out.println(listWData.getFirst().getData());
+		
+		listWData.insertLast(new Node(43));
+		System.out.println("current:" + list.head.getData() + " next:" + list.head.getNext().getData());
 	}
 }

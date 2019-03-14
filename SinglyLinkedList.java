@@ -9,7 +9,6 @@ public class SinglyLinkedList {
 	
 	/** CONSTRUCTORS */
 	public SinglyLinkedList() {
-		head=new Node();
 	}
 	
 	public SinglyLinkedList(Node n) {
@@ -18,40 +17,53 @@ public class SinglyLinkedList {
 	
 	/**** FUNCTIONS ****/
 	/**
-	* Inserts given element at the beginning of the list
-	* @param 
-	* @return 
+	* Inserts given node at the beginning of the list
+	* @param node node to add to the beginning of the list
 	*/
-	public void insertFirst(Node n) {
+	public void addFirst(Node node) {
+		System.out.println("Inserting!");
 		if(head==null) {
-			head=n;
+			System.out.println("Linked list empty! inserting first :-)");
+			head=node;
 		} else {
-			n.setNext(head);
-			head=n;
+			System.out.println("Adding element to beginning of list!");
+			node.setNext(head);
+			head=node;
 		}
 	}
 	
 	/**
-	* Inserts given element at the end of the list	
-	* @param 
-	* @return 
+	* Adds given Node at the end of the list	
+	* @param node node to add to the end of the list
 	*/
-	public void insertLast(Node node) {
-		Node current=head;
-		while(current.getNext() != null) {
-			current=current.getNext();	
+	public void addLast(Node node) {
+		if(head==null) {
+			System.out.println("Linked list empty! inserting at head :-)");
+			head=node;
+		} else {
+			System.out.println("inserting linked list at the end :-)");
+			Node current=head;
+			while(current.getNext() != null) {
+				System.out.println("while");
+				current=current.getNext();	
+			}
+			current.setNext(node);
 		}
-		current.setNext(node);
 	}
 	
 	/**
-	* Inserts element at given index; If less than 0, will insert at beginning;
+	* Adds element after given index; If less than 0, will insert at beginning;
 	* If greater than last index will insrt at end		
 	* @param 
 	* @return 
 	*/
-	public void insert() {
-		//solution logic
+	public void add(Node node) {
+		if(head==null) {
+			System.out.println("Linked list empty! inserting at head :-)");
+			head=node;
+		} else {
+
+		}
 	}
 	
 	/**
@@ -126,15 +138,6 @@ public class SinglyLinkedList {
 			data = d;
 		}
 		
-		public Node(Node n){ //given next node
-			next = n;
-		}
-		
-		public Node(int d, Node n) { //given data and next node
-			data=d;
-			next=n;
-		}
-		
 		/** FUNCTIONS */
 		public int getData() {return data;}
 		public Node getNext() {return next;}
@@ -157,10 +160,15 @@ public class SinglyLinkedList {
 		*/
 		
 		SinglyLinkedList list = new SinglyLinkedList();
-		SinglyLinkedList listWData = new SinglyLinkedList(new Node(5));
-		System.out.println(listWData.getFirst().getData());
+		//SinglyLinkedList list = new SinglyLinkedList(new Node(5));
+		list.addLast(new Node(1));
 		
-		listWData.insertLast(new Node(43));
-		System.out.println("current:" + list.head.getData() + " next:" + list.head.getNext().getData());
+		list.addFirst(new Node(43));
+		Node current = list.getFirst();
+		
+		System.out.println("current:" + current.getData() + " next:" + current.getNext().getData());
+		list.addLast(new Node(-7));
+		System.out.println("current:" + current.getData() + " next:" + current.getNext().getData() + " nextnext:" + current.getNext().getNext().getData());
+		
 	}
 }

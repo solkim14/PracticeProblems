@@ -57,12 +57,21 @@ public class SinglyLinkedList {
 	* @param 
 	* @return 
 	*/
-	public void add(Node node) {
-		if(head==null) {
+	public void add(Node node, int index) {
+		Node current=head;
+		if (index < 0) {
+			
+		} else if(head==null) {
+			System.out.println("Linked list empty! inserting at head :-)");
+			head=node;
+		} else if(index==0) {
 			System.out.println("Linked list empty! inserting at head :-)");
 			head=node;
 		} else {
-
+			while(current.getNext() != null) {
+				current=current.getNext();	
+			}
+			current.setNext(node);
 		}
 	}
 	
@@ -169,6 +178,7 @@ public class SinglyLinkedList {
 		System.out.println("current:" + current.getData() + " next:" + current.getNext().getData());
 		list.addLast(new Node(-7));
 		System.out.println("current:" + current.getData() + " next:" + current.getNext().getData() + " nextnext:" + current.getNext().getNext().getData());
-		
+		list.add(new Node(2),-4);
+		System.out.println(current.getData() + " " + current.getNext().getData() + " " + current.getNext().getNext().getData() + " " + current.getNext().getNext().getNext().getData());
 	}
 }

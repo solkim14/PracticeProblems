@@ -1,27 +1,60 @@
 /**
-* //Problem
-* 
+* How do you find the middle element of a singly linked list
+* in one pass?
 *
 * @version 1.0
 */
 
-//imports
-
 public class LinkedListFindMiddle {
 
 	/**
-	* //Time Complexity
+	* O(n)
 	*
-	* Summary:  
+	* Summary:  Iterates through every element of the linked list. Keeps 2 pointers, "current" which will pass each element once
+	*			and "middle" a pointer that keeps track of the middle element from the beginning of the list to the "current" pointer
 	*			
-	* @param 
-	* @return 
+	* @param list the LinkedList where you will find the middle element
+	* @return middle the middle node of list
 	*/
-	public static void function() {
-		//solution logic
+	public static Node findMiddle(CircularSinglyLinkedList list) {
+		if (list.size()<1) return null; //if empty return
+		
+		Node middle=list.getNode(0); //start at the head
+		Node current=list.getNode(0);
+		int counter=1;
+				
+		while(current.getNext() != list.getLast()) { //while not at the last element of list
+			current=current.getNext();
+			counter++;
+			
+			if(counter%2==0) middle=middle.getNext();
+		}
+		return middle;
 	}
 
 	public static void main(String[] args) {
-		//function call
+		
+		//LinkedList<Node> list = new LinkedList<Node>();
+		CircularSinglyLinkedList list = new CircularSinglyLinkedList();
+		
+		
+		list.addLast(new Node(1));
+		/**
+		list.addLast(new Node(2));
+		list.addLast(new Node(3));
+		list.addLast(new Node(4));
+		list.addLast(new Node(5));
+		list.addLast(new Node(6));
+		list.addLast(new Node(7));
+		list.addLast(new Node(8));
+		list.addLast(new Node(9));
+		list.addLast(new Node(10));
+		*/
+		list.display();
+		//LinkedList<Integer> list = new LinkedList<>();
+		
+		Node middle = findMiddle(list);
+		
+		if (middle != null) System.out.println("middle node is " + middle.getData());
 	}
 }

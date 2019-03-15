@@ -10,7 +10,7 @@ public class Node {
 	}
 	/** FUNCTIONS */
 	public int getData() {return data;}
-	public Node getNext() {return next;}
+	public Node next() {return next;}
 	public void setData(int d) {data=d;}
 	public void setNext(Node n) {next=n;}
 }

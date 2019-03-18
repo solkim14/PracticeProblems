@@ -35,6 +35,8 @@ public class LinkedListFindCycle {
 				next=current.next();
 			}
 		}
+		//bug? do we need to account for last node? infinite loop? need to set to null?
+		
 		return hasCycle;
 	}
 

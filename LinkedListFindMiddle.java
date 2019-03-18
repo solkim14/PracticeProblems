@@ -21,7 +21,6 @@ public class LinkedListFindMiddle {
 		
 		Node middle=list.getNode(0); //start at the head
 		Node current=list.getNode(0);
-		int counter=1;
 				
 		while(current.getNext() != list.getLast()) { //while not at the last element of list
 			current=current.getNext();

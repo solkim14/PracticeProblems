@@ -25,6 +25,7 @@ public class SinglyLinkedList {
 		if(head==null) {
 			System.out.println("Linked list empty! inserting first :-)");
 			head=node;
+			node.setNext(null);
 		} else {
 			System.out.println("Adding element to beginning of list!");
 			node.setNext(head);
@@ -92,8 +93,19 @@ public class SinglyLinkedList {
 	* @param 
 	* @return 
 	*/
-	public void removeFirst() {
-		//solution logic
+	public Node removeFirst() {
+		System.out.println("Removing!");
+		Node removed=null;
+		if(head==null) { //empty
+			System.out.println("Linked list empty! Nothing to remove");
+		} else if (head.next()==null) { //only one element
+			removed=head;
+			head=null;
+		} else {
+			removed=head;
+			head=head.next();
+		}
+		return removed;
 	}
 	
 	/**

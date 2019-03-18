@@ -33,6 +33,10 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	public void setHead(Node n) {
+		head=n;
+	}
+	
 	/**
 	* Adds given Node at the end of the list	
 	* @param node node to add to the end of the list

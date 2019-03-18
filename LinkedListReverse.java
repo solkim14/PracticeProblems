@@ -1,35 +1,33 @@
 /**
 * How do you reverse a linked list
 *
-* @version 1.0
+* @version 2.0
 */
 
-//imports
-
 public class LinkedListReverse {
-
+	
 	/**
-	* O(n)
+	* O(n) - NEW
 	*
-	* Summary:  iterate through the linked list: remove the head of the linked list and add to the head of the second. Continue until complete.
+	* Summary:  iterate through the linked list, keep track of previous element and change next element pointer to point to previous
 	*			
 	* @param list the Singly Linked List we want to reverse
 	* @return reverse the same elements of list but in reverse
 	*/
 	public static SinglyLinkedList reverse(SinglyLinkedList list) {
-		SinglyLinkedList reverseList = new SinglyLinkedList();
-		//iterate until last element
+		Node prev=null;
 		Node current=list.getFirst();
+		Node next=null;
 		
 		while (current != null) {
-			Node node=list.removeFirst();
-			reverseList.addFirst(node); //THIS IS THE BUG
-			//list.display();
-			//System.out.println(node.getData() + " -> " + node.next().getData());
-			
-			current=list.getFirst();
+			System.out.println("current: " + current.getData());
+			next=current.next();
+			current.setNext(prev);
+			prev=current;
+			current=next;
 		}
-		return reverseList;
+		list.setHead(prev); //have to reset head
+		return list;
 	}
 
 	public static void main(String[] args) {
@@ -62,4 +60,24 @@ public class LinkedListReverse {
 		*/
 		reverseList.display();
 	}
+	/**
+	* O(n) - OLD, takes O(n) space vs O(1) in new solution
+	*
+	* Summary:  iterate through the linked list: remove the head of the linked list and add to the head of the second. Continue until complete.
+	*			
+	* @param list the Singly Linked List we want to reverse
+	* @return reverse the same elements of list but in reverse
+	
+	public static SinglyLinkedList reverse(SinglyLinkedList list) {
+		SinglyLinkedList reverseList = new SinglyLinkedList();
+		Node current=list.getFirst();
+		
+		while (current != null) {
+			Node node=list.removeFirst();
+			reverseList.addFirst(node); //THIS IS THE BUG			
+			current=list.getFirst();
+		}
+		return reverseList;
+	}
+	*/
 }

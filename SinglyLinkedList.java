@@ -53,6 +53,7 @@ public class SinglyLinkedList {
 				current=current.next();	
 			}
 			current.setNext(node);
+			current.next().setNext(null);
 		}
 	}
 	
@@ -127,7 +128,7 @@ public class SinglyLinkedList {
 	* @return 
 	*/
 	public Node remove(Node node) {
-		Node removed = null;
+		Node newCurrent = null;
 		System.out.println("Removing!");
 		if(head==null) { //empty
 			System.out.println("Linked list empty! Nothing to remove");
@@ -135,20 +136,21 @@ public class SinglyLinkedList {
 			head=null;
 		} else if (node==head) {
 			head=head.next();
+			newCurrent=head;
 		} else {
-			Node prev=head;
-			Node next=node.next();
-			while(prev.getData()!=node.getData()) {
-				System.out.println(prev.getData());
-				prev=prev.next();
-				if (prev.getData()!=node.getData()) {
-					break;
-				}
+			Node prev=null;
+			Node current=head;
+			while(current.getData()!=node.getData()) {
+//				System.out.println(prev.getData() + " " + current.getData());
+				prev=current;
+				current=current.next();
 			}
+			Node next=current.next();
 			prev.setNext(next);
-			removed=prev;
+			current.setNext(null);
+			newCurrent=prev;
 		}
-		return removed;
+		return newCurrent;
 	}
 	
 	/**

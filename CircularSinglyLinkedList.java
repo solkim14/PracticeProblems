@@ -67,7 +67,7 @@ public class CircularSinglyLinkedList {
 		} else {
 			//System.out.println("test 3");
 			firstNode = head;
-			head = head.getNext();
+			head = head.next();
 			firstNode.setNext(null);
 			tail.setNext(head);
 		}
@@ -91,11 +91,11 @@ public class CircularSinglyLinkedList {
 			head = tail = null;
 		} else {
 			while (findNode != tail) { //find the second to last node
-				if (findNode.getNext() == tail) { //found it
+				if (findNode.next() == tail) { //found it
 					secondToLast = findNode;
 					break;
 				}
-				findNode = findNode.getNext();
+				findNode = findNode.next();
 			}
 			lastNode = tail;
 			lastNode.setNext(null);
@@ -123,9 +123,9 @@ public class CircularSinglyLinkedList {
 			size = 1;
 		} else {
 			size = 1;
-			while (countNode.getNext() != head) { //find the second to last node
+			while (countNode.next() != head) { //find the second to last node
 				size++;
-				countNode = countNode.getNext();
+				countNode = countNode.next();
 			}
 		}
 		return size;
@@ -150,12 +150,12 @@ public class CircularSinglyLinkedList {
 		} else if (index == 0) { //if requesting the first element
 			iterateNode = head;
 		} else {
-			iterateNode = head.getNext();
+			iterateNode = head.next();
 			while (iterateNode != head) { //find the node at the given index
 				if (numNodes == index) { //found it
 					return iterateNode;
 				}
-				iterateNode = iterateNode.getNext();
+				iterateNode = iterateNode.next();
 				numNodes++;
 			}
 			//if it got through then the index requested is larger than the number of nodes
@@ -182,9 +182,9 @@ public class CircularSinglyLinkedList {
 			Node prev = tail;
 			Node current = head;
 			
-			if ((head!=null && tail!=null) && (head.getNext() != head)) { //if linked list is greater than 1 element
+			if ((head!=null && tail!=null) && (head.next() != head)) { //if linked list is greater than 1 element
 				prev = head;
-				current = prev.getNext();
+				current = prev.next();
 				counter++;
 				
 				//find the node at the given index by iterating through linked list
@@ -193,7 +193,7 @@ public class CircularSinglyLinkedList {
 						break;
 					}
 					prev = current;
-					current = prev.getNext();
+					current = prev.next();
 					counter++;
 				}
 				
@@ -225,7 +225,7 @@ public class CircularSinglyLinkedList {
 		if (printNode != null) { //only display if the linked list is not empty
 			while(printNode != tail) {
 				System.out.print(printNode.getData() + ", ");
-				printNode = printNode.getNext();
+				printNode = printNode.next();
 			}
 			System.out.println(printNode.getData()); //last node
 			//System.out.println(" head is " + head.getData() + ", tail is " + tail.getData());

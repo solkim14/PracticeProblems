@@ -17,16 +17,17 @@ public class LinkedListFindMiddle {
 	* @return middle the middle node of list
 	*/
 	public static Node findMiddle(CircularSinglyLinkedList list) {
+		int counter=0;
 		if (list.size()<1) return null; //if empty return
 		
 		Node middle=list.getNode(0); //start at the head
 		Node current=list.getNode(0);
 				
-		while(current.getNext() != list.getLast()) { //while not at the last element of list
-			current=current.getNext();
+		while(current.next() != list.getLast()) { //while not at the last element of list
+			current=current.next();
 			counter++;
 			
-			if(counter%2==0) middle=middle.getNext();
+			if(counter%2==0) middle=middle.next();
 		}
 		return middle;
 	}

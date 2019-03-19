@@ -4,6 +4,8 @@
 * @version 1.0
 */
 
+import java.util.List;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class LinkedListStackSum {
@@ -18,12 +20,14 @@ public class LinkedListStackSum {
 	* @param list2 the second list with elements to add using stack
 	* @return sum the sum of all node data from list1 and list2
 	*/
-	public static int sum(SinglyLinkedList list1, SinglyLinkedList list2) {
+	public static int sum(List<Integer> list1, List<Integer> list2) {
 		int sum=0;
 		Stack<Node> stack = new Stack<>();
 
-		addToStack(stack,list1);
-		addToStack(stack,list2);
+		//push all elements of both lists to the stack
+		//while()
+		//if(list1.)
+			
 		
 		while (stack.empty() != true) {
 			int nodeData = stack.pop().getData();
@@ -33,42 +37,24 @@ public class LinkedListStackSum {
 		return sum;
 	}
 	
-	public static void addToStack(Stack<Node> stack, SinglyLinkedList list) {
-		Node current=list.getFirst();
-		while (current != null) { //iterate through entire list and add to stack
-			stack.push(current);
-			current=current.next();
-		}
-	}
+
 
 	public static void main(String[] args) {
-		SinglyLinkedList list1 = new SinglyLinkedList();
-		/**
-		list1.addLast(new Node(1));
-		list1.addLast(new Node(2));
-		list1.addLast(new Node(3));
-		list1.addLast(new Node(4));
-		list1.addLast(new Node(5));
-		list1.addLast(new Node(6));
-		list1.addLast(new Node(7));
-		list1.addLast(new Node(8));
-		list1.addLast(new Node(9));*/
+		List<Integer> list1 = new LinkedList<>();
+		list1.add(1);
+		list1.add(1);
+		list1.add(3);
+		list1.add(9);
+
+		List<Integer> list2 = new LinkedList<>();
+		list2.add(3);
+		list2.add(4);
+		list2.add(5);
+		list2.add(7);
+		list2.add(8);
 		
-		SinglyLinkedList list2 = new SinglyLinkedList();
-		/**
-		list2.addLast(new Node(43));
-		list2.addLast(new Node(22));
-		list2.addLast(new Node(87));
-		list2.addLast(new Node(0));
-		list2.addLast(new Node(99));
-		list2.addLast(new Node(12));
-		list2.addLast(new Node(30));
-		list2.addLast(new Node(67));
-		list2.addLast(new Node(84));
-		*/
-		
-		list1.display();
-		list2.display();
+		System.out.println(list1);
+		System.out.println(list2);
 		System.out.println("total sum: " + sum(list1,list2));
 	}
 }

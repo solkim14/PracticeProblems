@@ -1,5 +1,5 @@
 /**
-* How do you reverse a linked list
+* How do you reverse a singly linked list without recursion?
 *
 * @version 2.0
 */

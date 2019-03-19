@@ -126,8 +126,29 @@ public class SinglyLinkedList {
 	* @param 
 	* @return 
 	*/
-	public void remove() {
-		//solution logic
+	public Node remove(Node node) {
+		Node removed = null;
+		System.out.println("Removing!");
+		if(head==null) { //empty
+			System.out.println("Linked list empty! Nothing to remove");
+		} else if (head.next()==null) { //only one element
+			head=null;
+		} else if (node==head) {
+			head=head.next();
+		} else {
+			Node prev=head;
+			Node next=node.next();
+			while(prev.getData()!=node.getData()) {
+				System.out.println(prev.getData());
+				prev=prev.next();
+				if (prev.getData()!=node.getData()) {
+					break;
+				}
+			}
+			prev.setNext(next);
+			removed=prev;
+		}
+		return removed;
 	}
 	
 	/**

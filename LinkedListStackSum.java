@@ -24,26 +24,19 @@ public class LinkedListStackSum {
 	public static int sum(LinkedList<Integer> list1, LinkedList<Integer> list2) {
 		int totalSum=0;
 		Stack<Integer> stack = new Stack<>();
-
-		//System.out.println(biggerList(list1,list2));
 		
-		System.out.println(stack);
 		//push all elements from both lists onto the stack
 		int counter=0; //keeps track of how many equal elements are in both lists
 		while (list1.size()!=0 || list2.size()!=0) { //while neither list is empty
-			//System.out.println("at least one is not empty");
 			if(biggerList(list1,list2)==null) { //if same size
-				//System.out.println("same size");
 				stack.push(list1.removeFirst());
 				stack.push(list2.removeFirst());
 				counter++;
 			} else {
-				//System.out.println("not same size");
 				stack.push(biggerList(list1,list2).removeFirst());
 			}
 		}
 		
-		System.out.println(stack);
 		/** pop off all elements and add together */
 		boolean carry=false; //keeps track of if you need to carry the 1
 		int digitPos = 0; //signifies which digit position we are at
@@ -68,7 +61,6 @@ public class LinkedListStackSum {
 			} else carry=false;
 			
 			totalSum+=Math.pow(10,digitPos)*tempSum;
-			System.out.println(totalSum);
 			digitPos++;
 		}
 		return totalSum;
@@ -84,8 +76,6 @@ public class LinkedListStackSum {
 		}
 	}
 	
-
-
 	public static void main(String[] args) {
 		/**
 		LinkedList<Integer> list1 = new LinkedList<>();

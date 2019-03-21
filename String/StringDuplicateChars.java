@@ -1,11 +1,9 @@
 /**
-* How do you print duplicate characters from a string?
+* How are duplicate characters found in a string?
 *
 * @version 1.0
 */
 
-import java.io.IOException;
-import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -14,38 +12,48 @@ public class StringDuplicateChars {
 	/**
 	* O(n)
 	*
-	* Summary:  Split string into an array. Loop through the string and put each letter into hashtable.
-	*			If already in the table then print (it's a duplicate)
+	* Summary:  iterate through string chars and insert into a hash table, iterate again and check each char against hashtable to check if it contains more than one key
+	*			and print it
 	*			
-	* @param string the string you are looking through for duplicate letters
+	* @param string the string to parse through for duplicates
 	*/
-	public static void printDups(String input) {
-		Map<String,Integer> map = new HashMap<>();
-		String[] stringArray = input.split("");
+	public static void findDuplicates(String string) {
+		Map<Character,Integer> map = new HashMap<>();
+
+		if (string==null || string.isEmpty()) {
+			System.out.println("No string to parse through :/");
+			return;
+		}
 		
-		System.out.print("Duplicate Character(s): ");
-		for (String s : stringArray) {
-			if(map.containsKey(s)) {
-				if(map.get(s)<1) System.out.print(s + " ");
-				map.replace(s,1);
+		//insert strings characters into hashmap
+		for (int i=0; i<string.length(); i++) {
+			char s=string.charAt(i);
+			if (map.containsKey(s)) {
+				map.replace(s,map.get(s)+1);
 			} else {
-				map.put(s,0);
+				map.put(s,1);
+			}
+		}
+				
+		//print out duplicate chars
+		System.out.print("Duplicate Characters in " + string + ": ");
+		for (int j=0; j<string.length(); j++) {
+			char dup=string.charAt(j);
+			if (map.get(dup)>1) {
+				System.out.print(dup + " ");
+				map.replace(dup,0);
 			}
 		}
 		System.out.println();
 	}
 
-	public static void main(String[] args) throws IOException {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter a string: ");
-		String input = scanner.nextLine();
-
-		String[] stringArray = input.split("");
-		printDups(input);
-		//for(String s : stringArray) System.out.print(s + " ");
-
-	}
-	
-
+	public static void main(String[] args) {
+		//String string="";
+		String string="whoohoo";
+		//String string="boshp";
+		//String string="hoboken";
+		//String string="upside down bouncing off the ceiling inside out stranger to this feeling";
 		
+		findDuplicates(string);
+	}
 }

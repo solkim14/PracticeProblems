@@ -4,27 +4,23 @@
 * @version 1.0
 */
 
-import java.util.Map;
-import java.util.HashMap;
-
 public class StringCountChars {
 
 	/**
 	* O(n)
 	*
-	* Summary:  create a hashmap, iterate through the string for each character add to the hashmap (increment if more than one instance). then print hashmap
+	* Summary:  iterate through string, compare each char with given char. increment a counter to keep track of # of instances
 	*			
 	* @param string the string to count occurrences for each character
 	*/
-	public static void countChars(String string) {
-		Map<Character,Integer> map = new HashMap<>();
+	public static void countChar(String string, char c) {		
+		int counter=0;
 		
 		for (int i=0; i<string.length(); i++) {
-			char c = string.charAt(i);
-			if (map.containsKey(c)) map.replace(c,map.get(c)+1);
-			else map.put(c,1);
+			char current = string.charAt(i);
+			if (current==c) counter++;
 		}
-		System.out.println(map);
+		System.out.println("# of occurences of " + c + " in " + string + ": " + counter);
 	}
 
 	public static void main(String[] args) {
@@ -32,6 +28,8 @@ public class StringCountChars {
 		//String string="shoopdehwoop";
 		String string = "wahoo";
 		
-		countChars(string);
+		char c = 'o';
+		
+		countChar(string, c);
 	}
 }

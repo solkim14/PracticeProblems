@@ -1,7 +1,7 @@
 /**
 * How do you check if a string contains only digis?
 *
-* @version 2 .0
+* @version 2.0
 */
 
 //import java.util.Map;

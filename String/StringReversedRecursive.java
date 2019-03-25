@@ -4,8 +4,6 @@
 * @version 2.0
 */
 
-import java.lang.StringBuilder;
-
 public class StringReversedRecursive {
 
 	/**
@@ -17,17 +15,9 @@ public class StringReversedRecursive {
 	* @param 
 	* @return 
 	*/
-	public static String[] reverse(String[] stringArray, int left, int right) {
-		if (left>=right) {
-			return;
-		}	
-		return swap(reverse(stringArray,left++,right--),left,right);
-	}
-	
-	public static void swap(String[] stringArray, int left, int right) {
-		String temp = stringArray[left];
-		stringArray[left]=stringArray[right];
-		stringArray[right]=temp;
+	public static String reverse(String string) {
+		if (string==null || string.length()<=1) return string;
+		return reverse(string.substring(1)) + string.charAt(0);
 	}
 
 	public static void main(String[] args) {
@@ -35,11 +25,7 @@ public class StringReversedRecursive {
 		//String string = "wahoo";
 		//reverseNonRecursive(string);
 		
-		String[] stringArray = string.split("");
-		reverse(stringArray,0,stringArray.length-1);
-		StringBuilder sb = new StringBuilder();
-		for(String s:stringArray) sb.append(s);
-		System.out.println(sb.toString());
+		System.out.println(reverse(string));
 	}
 	
 	/**

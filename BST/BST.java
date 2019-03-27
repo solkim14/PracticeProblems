@@ -15,12 +15,18 @@ public class BST {
 			Node current = root;
 			while (current!=null) {
 				if (node.data < current.data) {
+					System.out.println("adding left!");
+					Node prev=current;
 					current = current.left;
-				} else {
+					if (current==null) prev.left=node;
+				}
+				else {
+					System.out.println("adding right!");
+					Node prev=current;
 					current = current.right;
+					if (current==null) prev.right=node;
 				}
 			}
-			current=node;
 		}
 	}
 

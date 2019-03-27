@@ -10,7 +10,7 @@
 public class StringReverse {
 
 	/**
-	* O(n) - NO LIBRARY
+	* O(n)
 	*
 	* Summary:  split string, loop through, and swap until you reach the middle
 	*			

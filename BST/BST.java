@@ -29,15 +29,19 @@ public class BST {
 
 	//delete
 	
-	//search
+	//binary search
 
 	//count nodes
+		//isEmpty
 	
-	//isEmpty
+	//count leaves
+		
+	//preorder - recursive
+	//preorder - not recursive
 	
-	//preorder
+	//inorder - recursive
+	//inorder - not recursive
 	
-	//inorder
-	
-	//postorder
+	//postorder - recursive
+	//postorder - not recursive
 }

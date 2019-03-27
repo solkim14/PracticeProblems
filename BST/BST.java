@@ -35,7 +35,9 @@ public class BST {
 	
 	//isEmpty
 	
-	//BFS
+	//preorder
 	
-	//DFS
+	//inorder
+	
+	//postorder
 }

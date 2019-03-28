@@ -28,6 +28,9 @@ public class BSTTest {
 		tree.add(node14);
 		tree.add(node13);
 		
+		tree.preorder();
+		
+		
 		//System.out.println("right right: " + tree.root.right.right.data);
 		//System.out.println("right right left: " + tree.root.right.right.left.data);
 		//tree.delete(node14);
@@ -38,7 +41,8 @@ public class BSTTest {
 		//System.out.println(tree.root.right.data);
 		//System.out.println(tree.root.right.right.data);
 		
-		tree.delete(node8);
+		//tree.delete(node8);
+		
 		/**
 		System.out.println("					" + tree.root.data + "					");
 		System.out.println();
@@ -47,23 +51,27 @@ public class BSTTest {
 		System.out.println("		" + tree.root.left.left.data + "		" + tree.root.left.right.data + "		" + tree.root.right.left.data + "		");
 		System.out.println("			" + tree.root.left.left.right.data + "   " + tree.root.left.right.left.data + "		" + tree.root.left.right.right.data);
 		*/
-		tree.delete(node3);
+		
+		//tree.delete(node3);
 		//System.out.println(tree.root.left.data); //+ " " + tree.root.left.left.data);// + " " + tree.root.left.left.right.data + " " );
 		//10 4 1 2 6 null
 		
+		/*
 		System.out.println("					" + tree.root.data + "					");
-		/**
 		System.out.println();
 		System.out.println("			" + tree.root.left.data + "				" + tree.root.right.data + "			");
 		System.out.println();
 		System.out.println("		" + tree.root.left.left.data + "		" + tree.root.left.right.data + "		" + tree.root.right.left.data + "		");
 		System.out.println("			" + tree.root.left.left.right.data + "	   " + tree.root.left.right.right.data);	
 		*/
+		
+		/**
 		tree.delete(node6);
 		System.out.println();
 		System.out.println("			" + tree.root.left.data + "				" + tree.root.right.data + "			");
 		System.out.println();
 		System.out.println("		" + tree.root.left.left.data + "		" + tree.root.left.right.data + "		" + tree.root.right.left.data + "		");
 		System.out.println("			" + tree.root.left.left.right.data);	
+		*/
 	}
 }

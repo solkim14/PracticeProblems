@@ -2,6 +2,8 @@
 * Binary Search Tree (BST) Implementation
 */
 
+import java.util.Stack;
+
 public class BST {
 	public Node root;
 	
@@ -93,6 +95,19 @@ public class BST {
 		
 	/** preorder - recursive */
 	/** preorder - iterative */
+	public void preorder() {
+		if (root==null) return; //if empty there's nothing to traverse
+		else {
+			Stack<Node> stack = new Stack<>();
+			stack.push(root);
+			while (!stack.empty()) {
+				Node popped = stack.pop();
+				System.out.println(popped.data);
+				if (popped.right!=null) stack.push(popped.right);
+				if (popped.left!=null) stack.push(popped.left);
+			}
+		}
+	}
 	
 	/** inorder - recursive */
 	/** inorder - iterative */

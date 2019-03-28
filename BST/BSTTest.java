@@ -3,10 +3,7 @@
 */
 
 public class BSTTest {
-	public static void main(String[] args) {
-		Node node = new Node(5);
-		System.out.println(node.data);
-		
+	public static void main(String[] args) {		
 		BST tree = new BST();
 		
 		Node node8 = new Node(8);
@@ -31,13 +28,28 @@ public class BSTTest {
 		tree.add(node14);
 		tree.add(node13);
 		
-		tree.delete(node4);
-		
+		//System.out.println("right right: " + tree.root.right.right.data);
+		//System.out.println("right right left: " + tree.root.right.right.left.data);
+		//tree.delete(node14);
+		//System.out.println("removed: " + tree.root.left.right.left.data);
+		//System.out.println("right right: " + tree.root.right.right.data);
+		System.out.println(tree.root.data);
+		System.out.println(tree.root.right.data);
+		System.out.println(tree.root.right.right.data);
+		tree.delete(node8);
+		System.out.println(tree.root.data + " " + tree.root.right.data + " " + tree.root.right.left.data);
+		System.out.println(tree.root.data + " " + tree.root.left.data + " " + tree.root.left.left.data + " " + tree.root.left.left.right.data + " " + tree.root.left.right.data + " " + tree.root.left.right.left.data + " " + tree.root.left.right.right.data);
+		//84126
+		tree.delete(node3);
+		System.out.println(tree.root.left.data); //+ " " + tree.root.left.left.data);// + " " + tree.root.left.left.right.data + " " );
+		//10 4 1 2 6 null
+		/**
 		System.out.println("					" + tree.root.data + "					");
 		System.out.println();
 		System.out.println("			" + tree.root.left.data + "				" + tree.root.right.data + "			");
 		System.out.println();
 		System.out.println("		" + tree.root.left.left.data + "		" + tree.root.left.right.data + "				" + tree.root.right.right.data + "		");
 		System.out.println("			" + tree.root.left.left.right.data + "   " + tree.root.left.right.left.data + "		" + tree.root.left.right.right.data + "		" + tree.root.right.right.left.data + "		");
+		*/
 	}
 }

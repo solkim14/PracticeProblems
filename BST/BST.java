@@ -37,7 +37,7 @@ public class BST {
 		else { //not empty
 			Node parent=null;
 			Node current = root;
-			while (current!=node) {
+			while (current!=node) { //find node
 				if (node.data < current.data) {
 					parent = current;
 					current = current.left;
@@ -60,15 +60,24 @@ public class BST {
 			} else {//if two children
 				Node minRightSubParent=current; //find minimum value in right subtree
 				Node minRightSub=current.right;
+				System.out.println("starting removal");
+				System.out.println("parent:" + minRightSubParent.data + " current:" + minRightSub.data);
 				while (minRightSub.left!=null) {
-					minRightSubParent=current; //find minimum value in right subtree
-					minRightSub=current.left;
+					minRightSubParent=minRightSub;
+					minRightSub=minRightSub.left;
+					System.out.println("finding");
+					System.out.println("parent:" + minRightSubParent.data + " current:" + minRightSub.data);
 				}
+				System.out.println("found minimum");
+				System.out.println("parent:" + minRightSubParent.data + " current:" + minRightSub.data);
 				int temp = current.data; //swap node data with minimum node data in right subtree
 				current.data = minRightSub.data;
 				minRightSub.data = temp;
 				if (minRightSubParent.right==minRightSub) minRightSubParent.right=minRightSubParent.right.right; //remove minimum node in right subtree
-				else minRightSubParent.left=null;
+				else {
+					if (minRightSub.left==null && minRightSub.right==null) minRightSubParent.left=null; //if minRightSub is a leaf node
+					else minRightSubParent.left=minRightSub.right;//minRightSub has a right child
+				}
 			}	
 		}
 	}

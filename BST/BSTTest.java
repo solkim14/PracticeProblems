@@ -28,8 +28,8 @@ public class BSTTest {
 		tree.add(node14);
 		tree.add(node13);
 		
-		tree.preorder();
-		
+		//tree.preorder();
+		tree.inorder();
 		
 		//System.out.println("right right: " + tree.root.right.right.data);
 		//System.out.println("right right left: " + tree.root.right.right.left.data);

@@ -71,7 +71,7 @@ public class BST {
 					System.out.println("parent:" + minRightSubParent.data + " current:" + minRightSub.data);
 				}
 				System.out.println("found minimum");
-				System.out.println("parent:" + minRightSubParent.data + " current:" + minRightSub.data);
+				System.out.println("parent:" + minRightSubParent.data    + " current:" + minRightSub.data);
 				int temp = current.data; //swap node data with minimum node data in right subtree
 				current.data = minRightSub.data;
 				minRightSub.data = temp;
@@ -111,6 +111,23 @@ public class BST {
 	
 	/** inorder - recursive */
 	/** inorder - iterative */
+	public void inorder() {
+		if (root==null) return;
+		else {
+			Stack<Node> stack = new Stack<>();
+			Node current=root;
+			stack.push(current);
+			while (!stack.empty()) {
+				while (current.left!=null) {
+					current=current.left;
+					if (current.right!=null) stack.push(current.right);
+					stack.push(current);
+				}
+				Node popped=stack.pop(); //left
+				System.out.println(popped.data);
+			}
+		}
+	}
 	
 	/** postorder - recursive */
 	/** postorder - iterative */

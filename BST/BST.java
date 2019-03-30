@@ -116,15 +116,14 @@ public class BST {
 		else {
 			Stack<Node> stack = new Stack<>();
 			Node current=root;
-			stack.push(current);
-			while (!stack.empty()) {
-				while (current.left!=null) {
-					current=current.left;
-					if (current.right!=null) stack.push(current.right);
+			while (current!=null || !stack.empty()) {
+				while (current!=null) {
 					stack.push(current);
+					current=current.left;
 				}
-				Node popped=stack.pop(); //left
-				System.out.println(popped.data);
+				current=stack.pop();
+				System.out.println(current.data);
+				current=current.right;
 			}
 		}
 	}

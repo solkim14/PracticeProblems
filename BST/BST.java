@@ -92,8 +92,18 @@ public class BST {
 		//isEmpty
 	
 	/** count leaves */
+	
 		
 	/** preorder - recursive */
+	public void preorderR(Node node) {
+		if (node==null) return;
+		else {
+			System.out.println(node.data);
+			preorderR(node.left);
+			preorderR(node.right);
+		}
+	}
+	
 	/** preorder - iterative */
 	public void preorder() {
 		if (root==null) return; //if empty there's nothing to traverse
@@ -110,6 +120,15 @@ public class BST {
 	}
 	
 	/** inorder - recursive */
+	public void inorderR(Node node) {
+		if (node==null) return;
+		else {
+			inorderR(node.left);
+			System.out.println(node.data);
+			inorderR(node.right);
+		}
+	}
+	
 	/** inorder - iterative */
 	public void inorder() {
 		if (root==null) return;
@@ -129,5 +148,37 @@ public class BST {
 	}
 	
 	/** postorder - recursive */
+	public void postorderR(Node node) {
+		if (node==null) return;
+		else {
+			postorderR(node.left);
+			postorderR(node.right);
+			System.out.println(node.data);
+		}
+	}
+	
 	/** postorder - iterative */
+		public void postorder() {
+		if (root==null) return;
+		else {
+			Stack<Node> stack = new Stack<>();
+			Node current=root;
+			while (current!=null || !stack.empty()) {
+				while (current!=null) {
+					stack.push(current.right);
+					stack.push(current);
+					current=current.left;
+				}
+				current=stack.pop();
+				if (current.right!=null && stack.peek()==current.right) {
+					Node right = stack.pop();
+					stack.push(current);
+					current=current.right;
+				} else {
+					System.out.println(current.data);
+					current=null;
+				}
+			}
+		}
+	}
 }

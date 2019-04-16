@@ -6,6 +6,7 @@ import java.util.Stack;
 
 public class BST {
 	public Node root;
+	public int counter;
 	
 	public BST() {
 		this.root=null;
@@ -158,19 +159,19 @@ public class BST {
 	}
 	
 	/** postorder - iterative */
-		public void postorder() {
+	public void postorder() {
 		if (root==null) return;
 		else {
 			Stack<Node> stack = new Stack<>();
 			Node current=root;
 			while (current!=null || !stack.empty()) {
 				while (current!=null) {
-					stack.push(current.right);
+					if (current.right!=null) stack.push(current.right);
 					stack.push(current);
 					current=current.left;
 				}
 				current=stack.pop();
-				if (current.right!=null && stack.peek()==current.right) {
+				if (current.right!=null && !stack.empty() && stack.peek()==current.right) {
 					Node right = stack.pop();
 					stack.push(current);
 					current=current.right;
@@ -179,6 +180,26 @@ public class BST {
 					current=null;
 				}
 			}
+		}
+	}
+	
+	/** PRINT ALL LEAVES */
+	public void printLeaves(Node node) {
+		if (node==null) return;
+		else {
+			if (node.left==null && node.right==null) System.out.println(node.data + " ");
+			printLeaves(node.left);
+			printLeaves(node.right);
+		}
+	}
+	
+	/** COUNT ALL LEAVES */
+	public void countLeaves(Node node) {
+		if (node==null) return;
+		else {
+			if (node.left==null && node.right==null) counter++;
+			countLeaves(node.left);
+			countLeaves(node.right);
 		}
 	}
 }

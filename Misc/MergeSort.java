@@ -7,7 +7,7 @@
 public class MergeSort {
 
 	/**
-	* O()
+	* O(nlogn)
 	*
 	* Summary:  Halve array until reached a single element, then merge arrays and put in correct place
 	*			

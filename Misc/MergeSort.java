@@ -19,12 +19,18 @@ public class MergeSort {
 		//split given array in half
 		int mid = array.length/2;
 		
-		//left array
-		//right array
+		//make left array
+		int[] l = new int[mid];
+		for (int i=0; i<l.length; i++) l[i]=array[i];
+		//make right array
+		int[] r = new int[array.length-mid];		
+		for (int j=mid; j<array.length; j++) r[j-mid]=array[j];		
 		
-		//keep splitting
-		
-		//if array length is 1 merge
+		if (l.length < 1) { //if array length is 1 merge
+			//merge();
+		} else { //keep splitting
+			
+		}
 	}
 
 	/**
